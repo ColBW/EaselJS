@@ -449,6 +449,18 @@ var Ticker = function() {
 		Ticker.timeoutID = setTimeout(Ticker._handleTimeout, Ticker._interval);
 	}
 	
+
+  /**
+   * @method _stopTick
+   * @protected
+   **/
+  Ticker._stopTick = function() {
+    var time = Ticker._stopTime();
+    var paused = Ticker._paused;
+
+    Ticker._listeners = 0;
+    return Ticker._time;
+  }
 	/**
 	 * @method _tick
 	 * @protected
